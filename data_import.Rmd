@@ -33,8 +33,11 @@ tail(litters_df) #check the tail of the data to make sure that everything is str
 skimr::skim(litters_df) #or do it by library(skimr)
 ```
 
+## Options to read_csv
 
+check out `?read_csv` for more information.
 
-
-
+**Example code**
+litters_df = read_csv("./data/FAS_litters.csv")
+litters_df
 
