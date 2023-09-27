@@ -13,11 +13,27 @@ Read in the litters dataset
 litters_df = read_csv("./data/FAS_litters.csv")
 spec(litters_df)
 
-#follow up step
+#follow up step: clean up variable names after importing data
 litters_df = janitor::clean_names(litters_df)
 ```
 
 ## Take a look at the data
+
+printing in the console.
+
+```{r}
+litters_df
+```
+
+```{r}
+tail(litters_df) #check the tail of the data to make sure that everything is structured
+```
+
+```{r}
+skimr::skim(litters_df) #or do it by library(skimr)
+```
+
+
 
 
 
