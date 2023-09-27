@@ -1,21 +1,24 @@
 ---
-title: "Simple document"
-output: html_document
+title: "Data Import"
+output: github_document
 ---
+Focus on readr.
+```{r setup}
+library(tidyverse) #the functions exist in tidyverse but not basic R)
+```
+## Read in some data
 
-I'm an R Markdown document! 
-
-# Section 1
-
-Here's a **code chunk** that samples from 
-a _normal distribution_:
-
+Read in the litters dataset
 ```{r}
-samp = rnorm(100)
-length(samp)
+litters_df = read_csv("./data/FAS_litters.csv")
+spec(litters_df)
+
+#follow up step
+litters_df = janitor::clean_names(litters_df)
 ```
 
-# Section 2
+## Take a look at the data
 
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
+
+
+
