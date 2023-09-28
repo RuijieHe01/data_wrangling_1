@@ -5,6 +5,8 @@ output: github_document
 Focus on readr.
 ```{r setup}
 library(tidyverse) #the functions exist in tidyverse but not basic R)
+library(readxl) #readxl = package contains read_excel function
+library(haven) #to read sas file
 ```
 ## Read in some data
 
@@ -40,4 +42,24 @@ check out `?read_csv` for more information.
 **Example code**
 litters_df = read_csv("./data/FAS_litters.csv")
 litters_df
+
+
+##  Other file formats
+
+Read in an excel file.
+
+```{r}
+mlb_df = read_excel("./data/mlb11.xlsx", range = "A1:F7")
+mlb_df #don't need to clean column names to lower snake case because it's lower letter already
+```
+
+
+Read in a SAS file
+
+```{r}
+pulse_df = read_sas("./data/public_pulse_data.sas7bdat")
+pulse_df #Need some cleaning up
+
+```
+
 
