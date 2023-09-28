@@ -59,7 +59,21 @@ Read in a SAS file
 ```{r}
 pulse_df = read_sas("./data/public_pulse_data.sas7bdat")
 pulse_df #Need some cleaning up
-
 ```
 
+## Comparison with Base R
+
+what about `read.csv` ...?
+
+ALways use underscore `read_csv` instead of dot (`read.csv`)
+
+```{r}
+litters_base = read.csv("data/FAS_litters.csv")
+litters_readr = read_csv("data/FAS_litters.csv")
+
+litters_base #print the entire dataset by default which give some weird information
+litters_readr
+```
+>Printing difference is the most obvious difference between using "base" and "readr".
+"readr" usuaslly faster.
 
