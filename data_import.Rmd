@@ -77,3 +77,12 @@ litters_readr
 >Printing difference is the most obvious difference between using "base" and "readr".
 "readr" usuaslly faster.
 
+## Export data
+
+Export the mlb sub-table
+
+```{r}
+mlb_df #Now is the 6 x 6 small table instead of full dataset
+write_csv(mlb_df, "./data/mlb_subtable.csv")
+```
+
