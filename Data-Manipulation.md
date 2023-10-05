@@ -18,11 +18,6 @@ library(tidyverse)
     ## ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 
 ``` r
-litters_data = read_csv("./data/FAS_litters.csv",
-  col_types = "ccddiiii")
-litters_data = janitor::clean_names(litters_data)
-
-pups_data = read_csv("./data/FAS_pups.csv",
-  col_types = "ciiiii")
-pups_data = janitor::clean_names(pups_data)
+litters_df = read.csv("./data/FAS_litters.csv")
+litters_df = janitor::clean_names(litters_df)
 ```
