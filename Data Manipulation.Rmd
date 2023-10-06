@@ -127,7 +127,11 @@ mutate(
   )
 ```
 
+**Done with `mutate` function**
 
+## `arrange` function ##
+
+##### Goal is to make things in order #####
 
 
 

@@ -1186,3 +1186,9 @@ mutate(
     ## 47               0            7    21.9
     ## 48               0            5    15.5
     ## 49               0            6    17.2
+
+**Done with `mutate` function**
+
+## `arrange` function
+
+##### Goal is to make things in order
