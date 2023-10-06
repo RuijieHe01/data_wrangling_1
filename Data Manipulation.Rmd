@@ -5,6 +5,14 @@ date: "2023-10-04"
 code_folding: hide
 ---
 
+## Main takeaway ##
+
+The main functions in `dplyr` pakage
+- Mutate
+- Select
+- Filter
+- Arrange
+
 ```{r}
 library(tidyverse)
 ```
@@ -132,6 +140,39 @@ mutate(
 ## `arrange` function ##
 
 ##### Goal is to make things in order #####
+
+```{r}
+# pups_born_alive list in order
+arrange(litters_df, pups_born_alive)
+```
+
+```{r}
+arrange (litters_df, pups_born_alive, gd0_weight)
+```
+Done with `arrange`
+
+## `%>%` operation
+Import dataset, clean names, select variables, do a mutate step
+```{r}
+litters_data_raw = read.csv("./data/FAS_litters.csv") #reading name
+litters_clean_name = janitor::clean_names(litters_data_raw) #clean name
+litters_data_selected = select(litters_clean_name, -pups_survive) #select variabls
+litters_mutated = mutate(litters_data_selected, wt_gain = gd18_weight -gd0_weight) #mutate (add new variable)
+litters_without_missing = drop_na(litters_mutated, gd0_weight) #drop missing value in gd0_weight column
+```
+
+**USE THE PIPE OPERATOR INSTEAD`%>%`
+
+```{r}
+litters_df =
+  read.csv("./data/FAS_litters.csv") %>%
+  janitor::clean_names() %>%
+  select(-pups_survive) %>% 
+  mutate(wt_gainn = gd18_weight - gd0_weight) %>% 
+  drop_na(gd0_weight)
+print(litters_df)
+```
+
 
 
 
