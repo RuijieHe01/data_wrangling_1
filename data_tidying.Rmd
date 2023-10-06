@@ -9,5 +9,47 @@ library(tidyverse)
 #Have `tidyr`, `dplyr`, `haven`, `readr`
 ```
 
+## `pivot_longer` function
+
+Import and load the PULSE data
+```{r}
+pulse_data =
+  haven::read_sas("./data/public_pulse_data.sas7bdat") %>%
+  janitor::clean_names()
+```
+
+Wide format to long format ...
+
+```{r}
+pulse_data_tidy =
+  pulse_data %>% 
+  pivot_longer(
+    bdi_score_bl :bdi_score_12m, #from bl to 12m
+    names_to ="visit", #create new variable from existing
+    names_prefix = "bdi_score_", #remove the matched start of each variable name
+    values_to = "bdi"
+  )
+``` 
+
+## Put everything into a single chunk ##
+
+**Rewrite, combine, and extend (to add a mutate)**
+
+```{r}
+pulse_data =
+  haven::read_sas("./data/public_pulse_data.sas7bdat") %>%
+  janitor::clean_names() %>%
+  pivot_longer(
+    bdi_score_bl :bdi_score_12m, #from bl to 12m
+    names_to ="visit", #create new variable from existing
+    names_prefix = "bdi_score_", #remove the matched start of each variable name
+    values_to = "bdi"
+  ) %>% 
+  relocate(id, visit) %>% #select to have `id`, `visit` in the first
+  mutate(visit = recode(visit, "bl" = "00m"))
+```
+
+
+
 
 
