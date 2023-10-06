@@ -14,3 +14,53 @@ litters_df = janitor::clean_names(litters_df)
 ```
 
 
+Look at the **dplyr** function
+
+## `select` (selecting variables)
+
+Choose some colomns and not others.
+
+```{r select only `group` and `gd0_weight` column}
+
+select(litters_df, group, gd0_weight)
+
+```
+
+```{r specify a range of colomns}
+select(litters_df, group, gd0_weight:gd_of_birth)
+```
+
+```{r}
+#Specify what we want to get rid of
+select(litters_df, -litter_number)
+```
+
+Renaming columns ...
+*Same for using either code below for renaming*
+```{r}
+select(litters_df, GROUP = group, LITTer_NUmBer = litter_number)
+```
+
+```{r}
+rename(litters_df, GROUP = group, LITTer_NUmBer = litter_number)
+```
+
+Select helpers
+
+```{r}
+# In litters_df, show everything start with "gd"
+select(litters_df, starts_with("gd"))
+```
+
+```{r}
+# move litter_number to the beginning, and keep everything else behind
+select(litters_df, litter_number, everything())
+```
+
+
+```{r relocate function in dplyr}
+#Does same thing as above (have litter_number in the beginning and everything behind)
+relocate(litters_df, litter_number)
+```
+
+**Done with selecting variables**
