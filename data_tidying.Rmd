@@ -1,6 +1,7 @@
 ---
 title: "Tidy Data"
 output: github_document
+Date: 10/06/2023
 ---
 Focus on readr.
 ```{r setup}
